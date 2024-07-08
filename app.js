@@ -38,10 +38,11 @@ const generateBadgeURL = (label, message, color) => `https://img.shields.io/badg
 app.get('/:owner/:repo/:metric', async (req, res) => {
     try {
         const { metric, owner, repo } = req.params;
+        const { color = 'blue' } = req.query;
         if (!endpoints[metric]) return res.status(400).json({ error: 'Invalid metric' });
 
         const data = await fetchData(owner, repo, endpoints[metric]);
-        const badgeURL = generateBadgeURL(metric.charAt(0).toUpperCase() + metric.slice(1), `${data}`, 'blue');
+        const badgeURL = generateBadgeURL(metric.charAt(0).toUpperCase() + metric.slice(1), `${data}`, color);
         res.redirect(badgeURL);
     } catch (error) {
         res.status(500).json({ error: 'Error fetching data' });
