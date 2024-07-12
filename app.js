@@ -44,12 +44,15 @@ app.get('/:owner/:repo/:metric', async (req, res) => {
         const data = await fetchData(owner, repo, endpoints[metric]);
         const badgeURL = generateBadgeURL(metric.charAt(0).toUpperCase() + metric.slice(1), `${data}`, color);
 
+        const svgResponse = await axios.get(badgeURL, { headers: { Accept: 'image/svg+xml' } });
+
+        res.setHeader('Content-Type', 'image/svg+xml');
         res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
         res.setHeader('Pragma', 'no-cache');
         res.setHeader('Expires', '0');
         res.setHeader('Surrogate-Control', 'no-store');
 
-        res.redirect(badgeURL);
+        res.send(svgResponse.data);
     } catch (error) {
         res.status(500).json({ error: 'Error fetching data' });
     }
