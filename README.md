@@ -1,9 +1,9 @@
-# github-badge
+# Github Badge Service
 ![](https://badges.creative-minds.studio/Vishal-Pattar/github-badge/views?color=F9F6EE)
 ![](https://badges.creative-minds.studio/Vishal-Pattar/github-badge/clones?color=F9F6EE)
-![](https://badges.creative-minds.studio/Vishal-Pattar/github-badge/forks?color=FF671F)
-![](https://badges.creative-minds.studio/Vishal-Pattar/github-badge/downloads?color=F9F6EE)
-![](https://badges.creative-minds.studio/Vishal-Pattar/github-badge/commits?color=046A38)
+![](https://badges.creative-minds.studio/Vishal-Pattar/github-badge/commits?color=FF671F)
+![](https://badges.creative-minds.studio/Vishal-Pattar/github-badge/downloads?color=046A39)
+![](https://badges.creative-minds.studio/Vishal-Pattar/github-badge/forks?color=F9F6EE)
 
 This service provides dynamically generated SVG badges for various GitHub repository metrics. It fetches data from the GitHub API and returns the corresponding badge as an SVG file.
 
